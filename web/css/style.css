@@ -24,20 +24,19 @@ body {
   box-shadow: 0 5px 5px #222222;
 }
 
-nav ul {
+/*nav ul{
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   width: 70%;
   margin-left: 12%;
 }
-
-li a {
+li a{
   text-decoration: none;
   color: #FFFFFF;
   text-shadow: 0 0 6px black;
-}
 
+}*/
 .section {
   margin: 100px 0 100px 0;
 }
@@ -76,15 +75,28 @@ p, h3 {
   height: 500px;
   width: 60%;
   margin-left: 20%;
+  border: 2px #2d2e2e solid;
+  box-shadow: 0 5px 0 #2d2e2e, 0 0 5px #2d2e2e;
 }
 
 form {
   width: 30%;
 }
 
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 50px;
+}
+
 footer {
   background-color: #2d2e2e;
-  padding: 50px 20px;
+  padding: 20px 10px;
+}
+
+footer h5 {
+  font-size: 0.6em;
 }
 
 @media screen and (max-width: 728px) {

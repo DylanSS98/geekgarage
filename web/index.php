@@ -50,11 +50,46 @@
     </div>
 
 
-    <div id="service" class="section">
+    <div id="service">
         <h2>Nos services</h2>
+       <ul>
+           <!--<li>
+               <img src="img/icone_service.png" alt="">
+               <p>Dépannage Software</p>
+           </li>-->
 
-        <img src="img/icone_service.png" alt="">
-        <h5>Dépannage Software</h5>
+           <li>
+               <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+                   <div class="card-header">Header</div>
+                   <div class="card-body">
+                       <h5 class="card-title">Secondary card title</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   </div>
+               </div>
+           </li>
+
+           <li>
+               <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+                   <div class="card-header">Header</div>
+                   <div class="card-body">
+                       <h5 class="card-title">Secondary card title</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   </div>
+               </div>
+           </li>
+
+           <li>
+               <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
+                   <div class="card-header">Header</div>
+                   <div class="card-body">
+                       <h5 class="card-title">Secondary card title</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   </div>
+               </div>
+           </li>
+       </ul>
+
+
 
     </div>
 
@@ -64,21 +99,6 @@
         <div id="maCarte">
 
 
-            <div class="form-popup" id="popup-Form">
-                <!-- <form action="/action_page.php" class="form-container">
-                    <h2>Veuillez vous connecter</h2>
-                    <label for="email">
-                        <strong>E-mail</strong>
-                    </label>
-                    <input type="text" placeholder="Votre Email" name="email" required>
-                    <label for="psw">
-                        <strong>Mot de passe</strong>
-                    </label>
-                    <input type="password" placeholder="Votre mot de passe" name="psw" required>
-                    <button type="submit" class="btn">Se connecter</button>
-                    <button type="submit" class="btn cancel" onclick="closeForm()">Annuler</button>
-                </form> -->
-            </div>
 
         </div>
 
