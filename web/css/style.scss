@@ -85,4 +85,27 @@ footer{
   padding: 50px 20px;
 }
 
-@import "mediaq";
+@media screen and (max-width: 728px){
+  .logo_geek{
+    width: 90%;
+  }
+
+  .img_nous{
+    display: none;
+  }
+
+  h3{
+    padding-top: 15%;
+  }
+
+  #maCarte{
+    height: 300px;
+
+  }
+  footer h5{
+    font-size: 0.6em;
+  }
+  p{
+    font-size: 0.8em;
+  }
+}
