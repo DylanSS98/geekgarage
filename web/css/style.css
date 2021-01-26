@@ -1,0 +1,90 @@
+@font-face {
+  font-family: Vintage;
+  src: url("../font");
+}
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #2d2e2e;
+  font-family: Vintage;
+  font-size: 1.6em;
+}
+
+.logo_geek {
+  margin-bottom: 200px;
+  margin-top: 200px;
+}
+
+.navbarre {
+  background-color: #291e17;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 5px 5px #222222;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  width: 70%;
+  margin-left: 12%;
+}
+
+li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  text-shadow: 0 0 6px black;
+}
+
+.section {
+  margin: 100px 0 100px 0;
+}
+
+.section h3 {
+  float: left;
+}
+
+.section p, .section ul {
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+
+p, h3 {
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+/* id */
+#nous {
+  background-color: #291e17;
+}
+
+#service {
+  padding-top: 120px;
+  padding-bottom: 380px;
+}
+
+#localisation {
+  background-image: url("../img/fond_parquet.jpg");
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#maCarte {
+  height: 500px;
+  width: 60%;
+  margin-left: 20%;
+}
+
+form {
+  width: 30%;
+}
+
+footer {
+  background-color: #2d2e2e;
+  padding: 50px 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
