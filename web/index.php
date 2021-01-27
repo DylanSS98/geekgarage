@@ -112,7 +112,70 @@
     <h5>Site conçus par Dylan Silva Sanches</h5>
 </footer>
 <!-- Js -->
-<script type="text/javascript" src="js/appmap.js"></script>
+<!--<script type="text/javascript" src="js/appmap.js"></script>-->
+    <?php require 'back/db.php';
+
+    $sql = $pdo->prepare('SELECT villes, adresse, lat, lon FROM villes');
+    $sql->execute();
+    $villes = $sql->fetchAll();
+
+    $villes_json = json_encode($villes);
+    ?>
+
+    <script type="text/javascript">
+        var lat = 47.61634;
+        var lon = 6.14439;
+        var carte = null;
+        // Fonction d'initialisation de la carte
+        function initMap() {
+
+            // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+            carte = L.map('maCarte').setView([lat, lon], 11);
+            // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(carte);
+        }
+        window.onload = function(){
+            // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+            initMap();
+
+            var villes = <?= $villes_json; ?>
+
+            var tableauMarker = []
+
+            var marqueurs = L.markerClusterGroup();
+
+
+// creation de marqueur avec Popup
+
+            for (ville in villes){
+                var marqueur1 =
+                    L.marker([villes[ville].lat, villes[ville].lon]); //addTo(carte);
+                marqueur1.bindPopup("<h5 style='color: darkred'>Online FormaPro</h5>"+
+            "<button type='submit' class='btn btn-primary'>Contacter</button></form>");
+        marqueurs.addLayer(marqueur1);
+}
+
+
+        //On ajoute le marqueur au tableau
+
+        tableauMarker.push(marqueurs);
+
+        //On regroupe les marqueurs dans un groupe lefleat
+        var groupe = new L.featureGroup(tableauMarker);
+
+        //On adapte le zoom au groupe
+        carte.fitBounds(groupe.getBounds());
+
+        carte.addLayer(marqueurs);
+        };
+    </script>
+
+
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
