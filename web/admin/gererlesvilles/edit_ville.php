@@ -28,6 +28,7 @@ $villes = $sql->fetchall();
         <th class="col">ID</th>
         <th class="col">Ville</th>
         <th class="col">Adresse</th>
+        <th class="col">N° de téléphone</th>
         <th class="col">lat</th>
         <th class="col">lon</th>
         <th class="col">action</th>
@@ -39,6 +40,7 @@ $villes = $sql->fetchall();
             <td><?= $ville['id'] ?></td>
             <td><?= $ville['Villes'] ?></td>
             <td><?= $ville['adresse'] ?></td>
+            <td><?= $ville['tel'] ?></td>
             <td><?= $ville['lat'] ?></td>
             <td><?= $ville['lon'] ?></td>
             <td><button class="btn btn-warning">Edit</button> <a class="btn btn-danger" href="../../back/delete.php?lign_delete=<?= intval($ville['id']) ?>">Supprimer</a></td>
@@ -49,6 +51,7 @@ $villes = $sql->fetchall();
     </table>
     </form>
 
-    <a href="../../index.php" class="btn btn-secondary">Retour au site</a>
+    <a href="../../" class="btn btn-secondary">Retour au site</a>
+    <a href="../inserernouvellevilles/insert_city.php" class="btn btn-primary">Ajouter une ville</a>
 </body>
 </html>

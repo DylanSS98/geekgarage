@@ -35,5 +35,18 @@
 </table>
 
 
+
+
+<SCRIPT LANGUAGE="javascript">
+        code = prompt('Entrez le mot de passe. Attention, respecter les majuscules et les minuscules','Entrer le mot de passe ici');
+        if (code != "Online")//Remplacer votremotdepasse par le mot de passe que vous allez choisir...
+        {
+            location.href="../error/mdpincorrect.php";//ici c'est la page où est redirigé le visiteur qui entre le mauvais mot de passe
+        }
+
+
+</script>
+
+</script>
 </body>
 </html>

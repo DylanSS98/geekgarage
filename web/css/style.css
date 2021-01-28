@@ -1,14 +1,14 @@
-@font-face {
+/*@font-face {
   font-family: Vintage;
   src: url("../font");
-}
+}*/
 body {
   margin: 0;
   padding: 0;
   text-align: center;
   color: #FFFFFF;
   background-color: #2d2e2e;
-  font-family: Vintage;
+  /*font-family: Vintage;*/
   font-size: 1.6em;
 }
 
@@ -53,6 +53,10 @@ li a{
 p, h3 {
   padding-right: 20%;
   padding-left: 20%;
+}
+
+.modal-dialog {
+  color: #222222;
 }
 
 /* id */

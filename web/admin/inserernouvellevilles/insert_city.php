@@ -4,11 +4,12 @@
     if (isset($_POST['form_submit'])) {
         $nom_ville = $_POST['ville_name'];
         $adress_ville = $_POST['ville_adress'];
+        $tel = $_POST['tel'];
         $lat = $_POST['ville_lat'];
         $lon = $_POST['ville_lon'];
 
-        $insert = $pdo->prepare("INSERT INTO villes (Villes, adresse, lat, lon) VALUES (?,?,?,?)");
-        $insert->execute([$nom_ville, $adress_ville, $lat, $lon]);
+        $insert = $pdo->prepare("INSERT INTO villes (Villes, adresse, tel, lat, lon) VALUES (?,?,?,?,?)");
+        $insert->execute([$nom_ville, $adress_ville, $tel, $lat, $lon]);
     }
     ?>
 
@@ -32,11 +33,15 @@
 
         <input type="text" name="ville_adress" placeholder="Adresse" class="form-control w-50 mt-2"">
 
+        <input type="text" name="tel" placeholder="N° de téléphone" class="form-control w-50 mt-2">
+
         <input type="text" name="ville_lat" placeholder="lat" class="form-control w-50 mt-2"">
 
         <input type="text" name="ville_lon" placeholder="lon" class="form-control w-50 mt-2"">
 
         <button type="submit" name="form_submit" class="btn btn-primary mt-2">Enregistrer</button>
+
+        <a href="../gererlesvilles/edit_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
 
         <?php if (isset($insert)){
             echo '<div class="alert alert-success" role="alert">
