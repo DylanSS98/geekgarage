@@ -26,7 +26,7 @@
     <tbody>
 
     <tr>
-        <td><a href="gererlesvilles/edit_ville.php"><img style="width: 20%" src="../img/icon_doss.png" alt="">Gerer les villes</a></td>
+        <td><a href="gererlesvilles/list_ville.php"><img style="width: 20%" src="../img/icon_doss.png" alt="">Gerer les villes</a></td>
     </tr>
     <tr>
         <td><a href="inserernouvellevilles/insert_city.php"><img style="width: 20%" src="../img/icon_doss.png" alt="">Ajouter un ville</a></td>

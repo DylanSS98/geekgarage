@@ -83,6 +83,11 @@ p, h3 {
   box-shadow: 0 5px 0 #2d2e2e, 0 0 5px #2d2e2e;
 }
 
+li img {
+  width: 200px;
+  height: 200px;
+}
+
 form {
   width: 30%;
 }
@@ -90,8 +95,13 @@ form {
 ul {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
-  margin: 80px 50px;
+  justify-content: center;
+  margin: 20px 50px;
+  color: #222222;
+}
+
+.card {
+  margin: 30px 30px;
 }
 
 footer {
@@ -101,6 +111,12 @@ footer {
 
 footer h5 {
   font-size: 0.6em;
+}
+
+nav {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
 }
 
 @media screen and (max-width: 728px) {
@@ -117,7 +133,7 @@ footer h5 {
   }
 
   #maCarte {
-    height: 300px;
+    height: 500px;
   }
 
   footer h5 {
@@ -126,6 +142,17 @@ footer h5 {
 
   p {
     font-size: 0.8em;
+  }
+
+  #service ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 0.6em;
   }
 }
 

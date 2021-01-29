@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
     require '../../back/db.php';
 
     if (isset($_POST['form_submit'])) {
@@ -9,7 +12,9 @@
         $lon = $_POST['ville_lon'];
 
         $insert = $pdo->prepare("INSERT INTO villes (Villes, adresse, tel, lat, lon) VALUES (?,?,?,?,?)");
+        var_dump($insert);
         $insert->execute([$nom_ville, $adress_ville, $tel, $lat, $lon]);
+
     }
     ?>
 
@@ -41,14 +46,14 @@
 
         <button type="submit" name="form_submit" class="btn btn-primary mt-2">Enregistrer</button>
 
-        <a href="../gererlesvilles/edit_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
+        <a href="../gererlesvilles/list_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
 
         <?php if (isset($insert)){
             echo '<div class="alert alert-success" role="alert">
             
   Enregistrer avec succés !
 </div>';
-            header('Location: ../gererlesvilles/edit_ville.php');
+            header('Location: ../gererlesvilles/list_ville.php');
         }
         ?>
     </form>

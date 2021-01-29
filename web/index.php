@@ -17,30 +17,26 @@
 <body>
 
 <header>
-    <!--<div class="navbarre">
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="#nous">Nous</a>
-                </li>
-
-                <li>
-                    <a href="#service">Services</a>
-                </li>
-
-                <li>
-                    <a href="#localisation">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </div>-->
+    <nav>
+    <ul class="nav justify-content-center bg-dark m-0 ">
+        <li class="nav-item">
+            <a class="nav-link active" href="#nous">A propos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#service">Service</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#maCarte">Carte</a>
+        </li>
+    </ul>
+    </nav>
     <img class="logo_geek" src="img/logo.png" alt="logo geek garage">
 </header>
 <div id="corps">
 
     <div id="nous" class="section">
-        <img class="img_nous" style="width: 100%" src="img/vintage-typewriter-qhd.jpg" alt="">
+        <img class="img_nous " style="width: 100%" src="img/ordi_nous.jpg" alt="">
 
         <h3 style="padding-top: 50px">A propos de nous</h3>
 
@@ -60,34 +56,41 @@
             </li>-->
 
             <li>
-                <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
-                    <div class="card-header">Header</div>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/diag.jfif" class="card-img-top" alt="">
+                    <hr>
                     <div class="card-body">
-                        <h5 class="card-title">Secondary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 class="card-title">Diagnostic</h5>
                     </div>
                 </div>
             </li>
 
             <li>
-                <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
-                    <div class="card-header">Header</div>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/maintenance.jfif" class="card-img-top" alt="">
+                    <hr>
                     <div class="card-body">
-                        <h5 class="card-title">Secondary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 class="card-title">Maintenance</h5>
                     </div>
                 </div>
             </li>
-
+        </ul>
+        <ul>
             <li>
-                <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
-                    <div class="card-header">Header</div>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/software.jpg" class="card-img-top" alt="">
+                    <hr>
                     <div class="card-body">
-                        <h5 class="card-title">Secondary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h5 class="card-title">Installation Software</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="card" style="width: 18rem;">
+                    <img src="img/install.jpg" class="card-img-top" alt="">
+                    <hr>
+                    <div class="card-body">
+                        <h5 class="card-title">Remaster</h5>
                     </div>
                 </div>
             </li>
@@ -115,19 +118,19 @@
                         </div>
                         <div style="margin-left: 10px" class="modal-body">
                             <form class="w-100" method="post" action="back/mail.php">
-                                <div class="form-group">
+                                <div class="form-group pt-3">
                                     <input type="email" class="form-control" id="exampleInputEmail1"
                                            aria-describedby="emailHelp" placeholder="Adresse Email" name="email">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group pt-3">
                                     <input type="text" class="form-control" id="exampleInputPassword1"
                                            placeholder="Nom, Prénom, Raison social" name="name">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group pt-3">
                                     <input type="text" class="form-control" id="exampleInputPassword1"
                                            placeholder="Numéro de téléphone" name="tel">
                                 </div>
-                                <div class="input-group">
+                                <div class="input-group pt-3">
                                     <textarea class="form-control" aria-label="With textarea"
                                               placeholder="Explication de votre problème" name="prob"></textarea>
                                 </div>
@@ -197,7 +200,8 @@
             for (ville in villes) {
                 var marqueur1 =
                     L.marker([villes[ville].lat, villes[ville].lon]); //addTo(carte);
-                marqueur1.bindPopup("<h5 style='color: darkred'>Online FormaPro</h5>" +
+                marqueur1.bindPopup("<img src='img/logo_online_mini.png' alt='Onlineformapro'>" +
+                    "<br>"+
                     [villes[ville].villes] +
                     "<br>" +
                     [villes[ville].adresse] +
