@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-    require '../../back/db.php';
+    require 'db.php';
 
     if (isset($_POST['form_submit'])) {
         $nom_ville = $_POST['ville_name'];
@@ -10,16 +10,16 @@ ini_set('display_errors', '1');
         $tel = $_POST['tel'];
         $lat = $_POST['ville_lat'];
         $lon = $_POST['ville_lon'];
+        $horaire = $_POST['ville_horaire'];
 
-        $insert = $pdo->prepare("INSERT INTO villes (Villes, adresse, tel, lat, lon) VALUES (?,?,?,?,?)");
-        var_dump($insert);
-        $insert->execute([$nom_ville, $adress_ville, $tel, $lat, $lon]);
+        $insert = $pdo->prepare("INSERT INTO villes (Villes, adresse, horaire, tel, lat, lon) VALUES (?,?,?,?,?,?)");
+        $insert->execute([$nom_ville, $adress_ville,$horaire, $tel, $lat, $lon]);
 
     }
     ?>
 
     <!doctype html>
-    <html lang="en">
+    <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -38,6 +38,8 @@ ini_set('display_errors', '1');
 
         <input type="text" name="ville_adress" placeholder="Adresse" class="form-control w-50 mt-2"">
 
+        <input type="text" name="ville_horaire" placeholder="horaire" class="form-control w-50 mt-2">
+
         <input type="text" name="tel" placeholder="N° de téléphone" class="form-control w-50 mt-2">
 
         <input type="text" name="ville_lat" placeholder="lat" class="form-control w-50 mt-2"">
@@ -46,14 +48,14 @@ ini_set('display_errors', '1');
 
         <button type="submit" name="form_submit" class="btn btn-primary mt-2">Enregistrer</button>
 
-        <a href="../gererlesvilles/list_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
+        <a href="list_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
 
         <?php if (isset($insert)){
             echo '<div class="alert alert-success" role="alert">
             
   Enregistrer avec succés !
 </div>';
-            header('Location: ../gererlesvilles/list_ville.php');
+            header('Location: ../admin/dash/espace_admin.php');
         }
         ?>
     </form>

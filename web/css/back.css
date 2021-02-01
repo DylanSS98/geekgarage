@@ -1,0 +1,70 @@
+.index_back{
+    text-align: center;
+}
+.index_back table{
+    display: flex;
+    justify-content: center;
+}
+
+#list{
+    width: 70%;
+    height: 40%;
+    border: 2px #1F5977 solid;
+    position: absolute;
+    right: 0;
+    top: 60%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+#menu{
+    border: 2px #1F5977 solid;
+    width: 30%;
+    height: 465px;
+}
+nav ul{
+    list-style-type: none;
+    margin-right: 20%;
+    margin-top: 30px;
+}
+nav ul li{
+    margin-top: 70px;
+}
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #222222;
+    color: #FFFFFF;
+}
+h1{
+    text-align: center;
+    padding-top: 15px;
+}
+
+#rdv{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 70%;
+    height: 465px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    border: 2px #1F5977 solid;
+}
+#compteur{
+    border: 2px #1F5977 solid;
+    width: 30%;
+    height: 372px;
+}
+#compteur ul{
+    list-style-type: none;
+}
+#compteur ul li{
+    margin-top: 70px;
+}
