@@ -1,6 +1,13 @@
 <?php
 //index pour admin
 
+/*if (!isset($_COOKIE['auth'])){
+    header('Location: ../back/login.php');
+}
+
+else{
+*/
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -33,3 +40,6 @@
 
 </body>
 </html>
+
+<?php
+} ?>

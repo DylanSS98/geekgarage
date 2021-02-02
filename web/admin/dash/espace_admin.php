@@ -23,6 +23,8 @@ require '../../back/db.php';
             <ul>
                 <li><a href="../../back/insert_city.php" class="btn btn-info">Ajouter une ville</a></li>
                 <li><a href="" class="btn btn-info">Ajouter un rendez-vous</a></li>
+                <li><a href="../../back/register.php" class="btn btn-info">Ajouter un administrateur</a></li>
+                <li><a href="../../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></li>
                 <li><a href="../../" class="btn btn-secondary">Retourner sur le site</a></li>
 
             </ul>
