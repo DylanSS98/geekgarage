@@ -1,6 +1,22 @@
 <?php
+session_start();
 
+
+if (isset($_SESSION['auth'])){
 require '../../back/db.php';
+
+$sql1 = $pdo->prepare("SELECT count(*) FROM rdv WHERE status = 'En attente'");
+$sql1->execute();
+$nb_waiting = $sql1->fetch();
+
+$sql2 = $pdo->prepare("SELECT count(*) FROM rdv WHERE status = 'En cours de traitement'");
+$sql2->execute();
+$nb_being_processed = $sql2->fetch();
+
+$sql3 = $pdo->prepare("SELECT count(*) FROM rdv WHERE status = 'Traité'");
+$sql3->execute();
+$nb_process = $sql3->fetch();
+
 
 ?>
 <html lang="fr">
@@ -9,48 +25,66 @@ require '../../back/db.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/back.css">
     <title>ADMIN</title>
 </head>
-
+<body>
 <header>
     <h1>DASHBORD</h1>
 </header>
-    <div id="menu">
-        <h3>Menu</h3>
-        <nav>
-            <ul>
-                <li><a href="../../back/insert_city.php" class="btn btn-info">Ajouter une ville</a></li>
-                <li><a href="" class="btn btn-info">Ajouter un rendez-vous</a></li>
-                <li><a href="../../back/register.php" class="btn btn-info">Ajouter un administrateur</a></li>
-                <li><a href="../../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></li>
-                <li><a href="../../" class="btn btn-secondary">Retourner sur le site</a></li>
-
-            </ul>
-        </nav>
-    </div>
 
 
-    <div id="rdv">
-        <h3>Liste des rendez-vous</h3>
-    </div>
-    <div id="list">
-        <h3>Liste villes</h3>
-        <?php require '../../back/list_ville.php' ?>
-    </div>
-
-
-
-
-    <div id="compteur">
-        <h3>Compteur</h3>
+<div id="menu">
+    <h3>Menu</h3>
+    <nav>
         <ul>
-            <li>Nombre de demandes de réparation en attente : </li>
-            <li>Nombre de réparations pris en charge : </li>
-            <li>Nombre de réparations terminées :</li>
+            <li><a href="../../back/insert_city.php" class="btn btn-primary">Ajouter une ville</a></li>
+            <li><a href="../../back/register.php" class="btn btn-primary">Ajouter un administrateur</a></li>
+            <li><a href="../../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></li>
+            <li><a href="../../" class="btn btn-secondary">Retourner sur le site</a></li>
+
         </ul>
+    </nav>
+</div>
 
-    </div>
+<h4>Rendez vous</h4>
+<div id="rdv_attente">
+    <h5>En attentes : <?php foreach ($nb_waiting as $nb): ?><?php endforeach; ?><?= $nb ?></h5> <?php foreach ($nb_waiting as $nb): ?><?php endforeach; ?>
+    <?php require '../../back/rdv_waiting.php'; ?>
+</div>
 
+<div id="rdv_encours">
+    <h5>En cours de traitements : <?php foreach ($nb_being_processed as $nb): ?><?php endforeach; ?><?= $nb ?></h5> <?php foreach ($nb_waiting
+
+                                                                                                  as $nb): ?> <?php endforeach; ?></h4>
+    <?php require '../../back/rdv_being_processed.php'; ?>
+</div>
+
+<div id="rdv_traite">
+    <h5>Traités : <?php foreach ($nb_process as $nb): ?><?php endforeach; ?><?= $nb ?></h5> <?php foreach ($nb_waiting
+
+                                                                                                          as $nb): ?> <?php endforeach; ?></h4>
+    <?php require '../../back/rdv-process.php'; ?>
+</div>
+
+
+<div id="list">
+    <h3>Liste des centres</h3>
+    <?php require '../../back/list_ville.php'; ?>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script src="../../js/app.js"></script>
+</body>
+</html>
+<?php
+
+}
+else {
+    header('Location: ../../back/login.php');
+}
+?>
 

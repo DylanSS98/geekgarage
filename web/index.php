@@ -1,3 +1,13 @@
+<?php require 'back/db.php';
+
+$sql = $pdo->prepare('SELECT villes, adresse, tel, horaire, lat, lon FROM villes');
+$sql->execute();
+$villes = $sql->fetchAll();
+
+$villes_json = json_encode($villes);
+?>
+
+
 <!doctype html>
 <html lang="dfr">
 <head>
@@ -119,6 +129,10 @@
                         <div style="margin-left: 10px" class="modal-body">
                             <form class="w-100" method="post" action="back/mail.php">
                                 <div class="form-group pt-3">
+                                    <input type="hidden" class="form-control" id="contact_center"
+                                           aria-describedby="emailHelp" name="centre" value="">
+                                </div>
+                                <div class="form-group pt-3">
                                     <input type="email" class="form-control" id="exampleInputEmail1"
                                            aria-describedby="emailHelp" placeholder="Adresse Email" name="email">
                                 </div>
@@ -128,19 +142,23 @@
                                 </div>
                                 <div class="form-group pt-3">
                                     <input type="text" class="form-control" id="exampleInputPassword1"
+                                           placeholder="Adresse" name="adresse">
+                                </div>
+                                <div class="form-group pt-3">
+                                    <input type="text" class="form-control" id="exampleInputPassword1"
                                            placeholder="Numéro de téléphone" name="tel">
                                 </div>
                                 <div class="input-group pt-3">
                                     <textarea class="form-control" aria-label="With textarea"
-                                              placeholder="Explication de votre problème" name="prob"></textarea>
+                                              placeholder="Explication de votre problème" name="message"></textarea>
                                 </div>
-                            </form>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                             </div>
-
+                        </form>
                     </div>
                 </div>
             </div>
@@ -156,14 +174,7 @@
     </footer>
     <!-- Js -->
     <!--<script type="text/javascript" src="js/appmap.js"></script>-->
-    <?php require 'back/db.php';
 
-    $sql = $pdo->prepare('SELECT villes, adresse, tel, horaire, lat, lon FROM villes');
-    $sql->execute();
-    $villes = $sql->fetchAll();
-
-    $villes_json = json_encode($villes);
-    ?>
 
     <script type="text/javascript">
 
@@ -211,7 +222,7 @@
                     "<br>" +
                     [villes[ville].tel] +
                     "<br>" +
-                    "<button style='margin-top: 5px' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>Contacter</button>");
+                    "<button style='margin-top: 5px' type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal' onclick=\"document.getElementById('contact_center').value = '"+ villes[ville].villes +"';\">Contacter </button>");
                 marqueurs.addLayer(marqueur1);
             }
 

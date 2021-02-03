@@ -1,15 +1,10 @@
 <?php
 //index pour admin
+session_start();
+if (isset($_SESSION['auth'])){
 
-/*if (!isset($_COOKIE['auth'])){
-    header('Location: ../back/login.php');
-}
-
-else{
-*/
-
-?>
-<!doctype html>
+    ?>
+    <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -27,11 +22,11 @@ else{
 <table>
     <tbody>
     <tr>
-        <td><a class="btn btn-infos" href="dash/espace_admin.php">Accéder au dashbord</a></td>
+        <td><a style="margin-bottom: 50px" class="btn btn-info" href="dash/espace_admin.php">Accéder au dashbord</a></td>
     </tr>
 
     <tr>
-        <td ><a class="btn btn-infos" href="">Retourner sur le site</a></td>
+        <td ><a class="btn btn-info" href="../">Retourner sur le site</a></td>
     </tr>
     </tbody>
 </table>
@@ -41,5 +36,10 @@ else{
 </body>
 </html>
 
-<?php
-} ?>
+    <?php
+}
+
+else {
+    header('Location: ../back/login.php');
+}
+?>

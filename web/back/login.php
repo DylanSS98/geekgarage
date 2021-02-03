@@ -15,7 +15,7 @@ if(isset($_POST['form_connect'])){
 
     if (!empty($logidf) && !empty($logmdp)){
 
-        $query = $pdo->prepare("SELECT * FROM villes WHERE identifiant = :identifiant");
+        $query = $pdo->prepare("SELECT * FROM user_admin WHERE identifiant = :identifiant");
         $query->bindParam(':identifiant', $logidf);
         $query->execute(['identifiant' => $logidf]);
         $result = $query->fetch();
@@ -25,10 +25,9 @@ if(isset($_POST['form_connect'])){
             $hash = $result['mdp'];
 
             if (password_verify($logmdp, $hash)){
-
-                setcookie('auth', $result['identifiant'], time());
-
-                header('Location: ../admin/index.php');
+                session_start();
+                $_SESSION['auth'] = $logidf;
+                header('Location: ../admin/');
             }
             else {
                 $erreur = 'Le mot de passe est incorrect';
@@ -64,7 +63,7 @@ if(isset($_POST['form_connect'])){
     <h2>Connexion</h2>
     <form method="post" action="">
 
-        <input type="text" name="idf_connect" placeholder="indentifiant" class="form-control" required>
+        <input type="text" name="idf_connect" placeholder="identifiant" class="form-control" required>
         </br>
         <input type="password" name="mdp_connect" placeholder="Mot de passe" class="form-control" required>
         </br>
@@ -73,6 +72,5 @@ if(isset($_POST['form_connect'])){
     </form>
     <br>
     <a href="../" class="btn btn-info">Retourner sur le site</a>
-
 </div>
 
