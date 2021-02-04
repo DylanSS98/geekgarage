@@ -10,5 +10,5 @@ $req = $pdo->prepare("DELETE FROM villes WHERE id = '$id'");
 
 $req->execute();
 
-header('Location: ../admin/dash/espace_admin.php');
+header('Location: ../admin/dash/list_ville.php');
 

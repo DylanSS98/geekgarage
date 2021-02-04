@@ -17,7 +17,6 @@ $rdvlist = $sql->fetchall();
 
 <table class="table w-60">
     <thead>
-    <th class="col">ID</th>
     <th class="col">Centre</th>
     <th class="col">Email</th>
     <th class="col">Nom</th>
@@ -51,18 +50,17 @@ $rdvlist = $sql->fetchall();
         </div>
 
         <tr>
-            <td><?= $rdv['id'] ?></td>
             <td><?= $rdv['centre'] ?></td>
             <td><a href="mailto: <?= $rdv['email'] ?>"><?= $rdv['email'] ?></a></td>
             <td><?= $rdv['nom'] ?></td>
             <td><?= $rdv['adresse'] ?></td>
             <td><?= $rdv['telephone'] ?></td>
-            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Afficher le message
                 </button></td>
             <td><?= $rdv['status'] ?></td>
             <td><?= $rdv['datefr'] ?></td>
-            <td><a class="btn btn-danger" href="../../back/delete_rdv.php?lign_delete=<?= intval($rdv['id']) ?>">Supprimer</a></td>
+            <td><a href="../../back/update_status_proccess.php?id_rdv=<?= intval($rdv['id']) ?>" class="btn btn-success">Changer le status</a><a class="btn btn-danger" href="../../back/delete_rdv.php?lign_delete=<?= intval($rdv['id']) ?>">Supprimer</a></td>
         </tr>
     <?php endforeach ; ?>
 

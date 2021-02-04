@@ -13,7 +13,6 @@ $rdvlist = $sql->fetchall();
 
 <table class="table w-60">
     <thead>
-    <th class="col">ID</th>
     <th class="col">Centre</th>
     <th class="col">Email</th>
     <th class="col">Nom</th>
@@ -48,13 +47,12 @@ $rdvlist = $sql->fetchall();
 
 
         <tr>
-            <td><?= $rdv['id'] ?></td>
             <td><?= $rdv['centre'] ?></td>
             <td><a href="mailto: <?= $rdv['email'] ?>"><?= $rdv['email'] ?></a></td>
             <td><?= $rdv['nom'] ?></td>
             <td><?= $rdv['adresse'] ?></td>
             <td><?= $rdv['telephone'] ?></td>
-            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Afficher le message
                 </button></td>
             <td><?= $rdv['status'] ?></td>

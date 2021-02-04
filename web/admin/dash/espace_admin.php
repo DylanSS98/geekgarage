@@ -32,24 +32,19 @@ $nb_process = $sql3->fetch();
 </head>
 <body>
 <header>
-    <h1>DASHBORD</h1>
+    <h1>DASHBORD rendez-vous</h1>
+        <nav>
+            <ul>
+                <li><a href="list_ville.php" class="btn btn-primary">Afficher les centres</a></li>
+                <li><a href="../../back/register.php" class="btn btn-primary">Ajouter un administrateur</a></li>
+                <li><a href="../../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></li>
+                <li><a href="../../" class="btn btn-secondary">Retourner sur le site</a></li>
+            </ul>
+        </nav>
 </header>
 
 
-<div id="menu">
-    <h3>Menu</h3>
-    <nav>
-        <ul>
-            <li><a href="../../back/insert_city.php" class="btn btn-primary">Ajouter une ville</a></li>
-            <li><a href="../../back/register.php" class="btn btn-primary">Ajouter un administrateur</a></li>
-            <li><a href="../../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></li>
-            <li><a href="../../" class="btn btn-secondary">Retourner sur le site</a></li>
 
-        </ul>
-    </nav>
-</div>
-
-<h4>Rendez vous</h4>
 <div id="rdv_attente">
     <h5>En attentes : <?php foreach ($nb_waiting as $nb): ?><?php endforeach; ?><?= $nb ?></h5> <?php foreach ($nb_waiting as $nb): ?><?php endforeach; ?>
     <?php require '../../back/rdv_waiting.php'; ?>
@@ -67,13 +62,6 @@ $nb_process = $sql3->fetch();
 
                                                                                                           as $nb): ?> <?php endforeach; ?></h4>
     <?php require '../../back/rdv-process.php'; ?>
-</div>
-
-
-<div id="list">
-    <h3>Liste des centres</h3>
-    <?php require '../../back/list_ville.php'; ?>
-
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>

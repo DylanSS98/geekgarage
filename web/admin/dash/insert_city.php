@@ -1,8 +1,8 @@
-<?php
+:<?php
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-    require 'db.php';
+    require '../../back/db.php';
 
     if (isset($_POST['form_submit'])) {
         $nom_ville = $_POST['ville_name'];
@@ -55,7 +55,7 @@ ini_set('display_errors', '1');
             
   Enregistrer avec succés !
 </div>';
-            header('Location: ../admin/dash/espace_admin.php');
+            header('Location: list_ville.php');
         }
         ?>
     </form>

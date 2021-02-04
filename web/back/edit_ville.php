@@ -1,5 +1,5 @@
 <?php
-require '../../back/db.php';
+require 'db.php';
 
 
 
@@ -65,14 +65,14 @@ if (isset($_POST['submit_edit'])){
 
         <button name="submit_edit" type="submit" class="btn btn-primary mt-2" >Modifier</button>
 
-        <a href="list_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
+        <a href="../admin/dash/list_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
 
         <?php if (isset($req)){
             echo '<div class="alert alert-success" role="alert">
             
   Enregistrer avec succés ! Redirection dans 3 secondes...
 </div>';
-            header("Refresh: 3;url=../gererlesvilles/list_ville.php");
+            header("Refresh: 3;url=../admin/dash/list_ville.php");
         }
         ?>
     </form>

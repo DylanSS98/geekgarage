@@ -22,7 +22,7 @@ $adresse = strip_tags(htmlspecialchars($_POST['adresse']));
 
 
 require 'db.php';
-$sql = $pdo->prepare('INSERT INTO rdv (centre, email, nom, adresse, telephone, message) VALUES (?,?,?,?,?,?)');
+$sql = $pdo->prepare("INSERT INTO rdv (centre, email, nom, adresse, telephone, message) VALUES (?,?,?,?,?,?)");
 $sql->execute([$centre, $email, $nom, $adresse, $tel, $message]);
 //parametre de l'envoie de message
 
