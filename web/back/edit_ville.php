@@ -1,40 +1,37 @@
 <?php
-require 'db.php';
+
+session_start();
+
+
+if (isset($_SESSION['auth'])) {
+
+    require 'db.php';
+    $id = $_GET["lign_edit"];
+
+    $id = intval($id);
+
+    $sql = $pdo->prepare("SELECT * FROM villes WHERE id = '$id'");
+    $sql->execute();
+    $villes = $sql->fetch();
 
 
 
-$id = $_GET["lign_edit"];
 
-$id = intval($id);
+    if (isset($_POST['submit_edit'])){
 
-$sql = $pdo->prepare("SELECT * FROM villes WHERE id = '$id'");
-$sql->execute();
-$villes = $sql->fetch();
+        $ville_nom = $_POST['ville_name'];
+        $ville_adresse = $_POST['ville_adress'];
+        $ville_horaire = $_POST['horaire'];
+        $ville_tel = $_POST['tel'];
+        $ville_lat = $_POST['ville_lat'];
+        $ville_lon =$_POST['ville_lon'];
+        $id_ville = $villes['id'];
 
-
-
-
-if (isset($_POST['submit_edit'])){
-
-    $ville_nom = $_POST['ville_name'];
-    $ville_adresse = $_POST['ville_adress'];
-    $ville_horaire = $_POST['horaire'];
-    $ville_tel = $_POST['tel'];
-    $ville_lat = $_POST['ville_lat'];
-    $ville_lon =$_POST['ville_lon'];
-    $id_ville = $villes['id'];
-
-    $req = $pdo->prepare("UPDATE villes SET Villes = '$ville_nom', adresse = '$ville_adresse', horaire = '$ville_horaire', tel = '$ville_tel', lat = '$ville_lat', lon = '$ville_lon' WHERE id = '$id_ville'");
-    $req->execute();
-}
-
+        $req = $pdo->prepare("UPDATE villes SET Villes = '$ville_nom', adresse = '$ville_adresse', horaire = '$ville_horaire', tel = '$ville_tel', lat = '$ville_lat', lon = '$ville_lon' WHERE id = '$id_ville'");
+        $req->execute();
+    }
 ?>
-
-
-
-
-
-<!doctype html>
+    <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -65,17 +62,25 @@ if (isset($_POST['submit_edit'])){
 
         <button name="submit_edit" type="submit" class="btn btn-primary mt-2" >Modifier</button>
 
-        <a href="../admin/dash/list_ville.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
+        <a href="../admin/dash/list_centre.php" class="btn btn-secondary" style="margin-top: 10px">Liste des villes</a>
 
         <?php if (isset($req)){
             echo '<div class="alert alert-success" role="alert">
             
   Enregistrer avec succés ! Redirection dans 3 secondes...
 </div>';
-            header("Refresh: 3;url=../admin/dash/list_ville.php");
+            header("Refresh: 3;url=../admin/dash/list_centre.php");
         }
         ?>
     </form>
 </div>
 </body>
 </html>
+
+<?php
+}
+
+else{
+     header('Location: login.php');
+}
+?>

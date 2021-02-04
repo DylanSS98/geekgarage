@@ -4,6 +4,8 @@
 .index_back table{
     display: flex;
     justify-content: center;
+    overflow:hidden;
+    table-layout:fixed;
 }
 
 .index_back tr{
@@ -61,4 +63,9 @@ h4{
     position: relative;
     top: 8%;
     right: 62%;
+}
+.message{
+    overflow:hidden;
+    table-layout:fixed;
+    width: 30%;
 }

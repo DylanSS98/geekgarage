@@ -1,11 +1,14 @@
 <?php
 
+session_start();
+if (isset($_SESSION['auth'])) {
+
 require '../../back/db.php';
 
 $sql = $pdo->prepare('SELECT * FROM villes');
 $sql->execute();
 $villes = $sql->fetchall();
- ?>
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -50,7 +53,7 @@ $villes = $sql->fetchall();
 
 
 <a style="margin-left: 20px" href="insert_city.php" class="btn btn-primary">Ajouter un centre</a>
-<a href="espace_admin.php" class="btn btn-secondary">Dashbord rendez-vous</a>
+<a href="../" class="btn btn-secondary">Retour à l'acceuil</a>
 
 
 
@@ -61,6 +64,12 @@ $villes = $sql->fetchall();
 
 </body>
 </html>
+<?php
+}
+else {
+    header('Location: ../../back/login.php');
+}
+?>
 
 
 

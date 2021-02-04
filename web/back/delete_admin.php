@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 
@@ -7,18 +8,17 @@ if (isset($_SESSION['auth'])) {
 
     require 'db.php';
 
-    $id = $_REQUEST["lign_delete"];
+    $id = $_REQUEST["admin_delete"];
 
     $id = intval($id);
 
-    $req = $pdo->prepare("DELETE FROM villes WHERE id = '$id'");
+    $req = $pdo->prepare("DELETE FROM user_admin WHERE id = '$id'");
 
     $req->execute();
 
-    header('Location: ../admin/dash/list_centre.php');
+    header('Location: list_admin.php');
 
 }
 else{
     header('Location: login.php');
 }
-

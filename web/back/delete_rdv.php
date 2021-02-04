@@ -9,4 +9,4 @@ $req = $pdo->prepare("DELETE FROM rdv WHERE id = '$id'");
 
 $req->execute();
 
-header('Location: ../admin/dash/espace_admin.php');
+header('Location: ../admin/dash/espace_rdv.php');

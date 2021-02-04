@@ -22,7 +22,7 @@ $sql->execute();
 
 if ($sql){
 
-    header('Location: ../admin/dash/list_ville.php');
+    header('Location: ../admin/dash/list_centre.php');
 }
 else {
     echo 'erreur';

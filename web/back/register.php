@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+if (isset($_SESSION['auth'])) {
+
 require 'db.php';
 //condition si on appuie sur le bouton//
 if (isset($_POST['form_submit'])) {
@@ -12,28 +16,28 @@ if (isset($_POST['form_submit'])) {
     $identifiantlength = strlen($identifiant);
     if ($identifiantlength <= 255){
 
-                //on verifie si le pseudo est disponible//
-                $verifidentifiant = $pdo->prepare("SELECT * FROM user_admin WHERE identifiant = ?");
-                $verifidentifiant->execute([$identifiant]);
-                $resultidentifiant = $verifidentifiant->rowCount();
-                if ($resultidentifiant ==0) {
+        //on verifie si le pseudo est disponible//
+        $verifidentifiant = $pdo->prepare("SELECT * FROM user_admin WHERE identifiant = ?");
+        $verifidentifiant->execute([$identifiant]);
+        $resultidentifiant = $verifidentifiant->rowCount();
+        if ($resultidentifiant ==0) {
 
-                    //on verifie que le mdp correspond au mdp confirm//
-                    if ($_POST["mdp"] == $_POST["mdp_confirm"]) {
-                        $sql = $pdo->prepare("INSERT INTO user_admin (identifiant, mdp) VALUES (?,?)");
-                        $sql->execute([$identifiant, $mdp]);
-                        $succes = 'Votre compte à bien été créer !';
-                        header("Refresh: 2; url='../admin/dash/espace_admin.php'");
-                    } else {
-                        $erreur = 'Les mots de passe ne corresponde pas !';
-                    }
-
-                }
-
-                else{
-                    $erreur = 'Ce pseudo est déja pris';
-                }
+            //on verifie que le mdp correspond au mdp confirm//
+            if ($_POST["mdp"] == $_POST["mdp_confirm"]) {
+                $sql = $pdo->prepare("INSERT INTO user_admin (identifiant, mdp) VALUES (?,?)");
+                $sql->execute([$identifiant, $mdp]);
+                $succes = 'Votre compte à bien été créer !';
+                header("Refresh: 2; url='list_admin.php'");
+            } else {
+                $erreur = 'Les mots de passe ne corresponde pas !';
             }
+
+        }
+
+        else{
+            $erreur = 'Ce pseudo est déja pris';
+        }
+    }
 
     else{
         $erreur = 'Votre pseudo ne doit pas dépasser 255 caractères !';
@@ -82,3 +86,12 @@ if (isset($_POST['form_submit'])) {
 
 </body>
 </html>
+
+
+
+<?php
+}
+else {
+    header('Location: login.php');
+}
+?>

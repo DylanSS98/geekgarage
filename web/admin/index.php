@@ -23,20 +23,26 @@ if (isset($_SESSION['auth'])) {
         <h2 class="" style="margin-bottom: 100px">BIENVENUE ADMINISTRATEUR</h2>
         <table>
             <tbody>
+
             <tr>
-                <td><a style="margin-bottom: 50px" class="btn btn-info" href="dash/espace_admin.php">Accéder au
-                        dashbord</a></td>
+                <td><a style="margin-bottom: 50px" class="btn btn-info" href="dash/espace_rdv.php">Accéder aux
+                        rendez-vous</a></td>
             </tr>
 
             <tr>
-                <td><a class="btn btn-info" href="dash/list_ville.php">Liste des centres</a></td>
+                <td><a style="margin-bottom: 50px" class="btn btn-info" href="dash/list_centre.php">Liste des centres</a></td>
             </tr>
 
             <tr>
-                <td><a class="btn btn-info" href="../">Retourner sur le site</a></td>
+                <td><a style="margin-bottom: 50px" class="btn btn-info" href="../back/list_admin.php">Liste des administrateurs</a></td>
             </tr>
 
-
+            <tr>
+                <td><a  style="margin-bottom: 50px" class="btn btn-secondary" href="../">Retourner sur le site</a></td>
+            </tr>
+            <tr>
+                <td><a href="../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></td>
+            </tr>
 
             </tbody>
         </table>

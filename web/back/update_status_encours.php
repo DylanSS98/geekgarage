@@ -1,17 +1,25 @@
 <?php
+session_start();
 
-require 'db.php';
+if (isset($_SESSION['auth'])) {
 
-$id = $_GET["id_rdv"];
 
-$id = intval($id);
+    require 'db.php';
 
-$sql = $pdo->prepare("UPDATE rdv SET status = 'En cours de traitement' WHERE id = '$id'");
-$sql->execute();
+    $id = $_GET["id_rdv"];
 
-if ($sql){
-    header('Location: ../admin/dash/espace_admin.php');
+    $id = intval($id);
+
+    $sql = $pdo->prepare("UPDATE rdv SET status = 'En cours de traitement' WHERE id = '$id'");
+    $sql->execute();
+
+    if ($sql) {
+        header('Location: ../admin/dash/espace_rdv.php');
+    } else {
+        echo 'erreur';
+    }
+
 }
 else{
-    echo 'erreur';
+    header('Location: login.php');
 }

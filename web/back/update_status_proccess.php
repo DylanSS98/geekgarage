@@ -11,7 +11,7 @@ $sql = $pdo->prepare("UPDATE rdv SET status = 'Traité' WHERE id = '$id'");
 $sql->execute();
 
 if ($sql) {
-    header('Location: ../admin/dash/espace_admin.php');
+    header('Location: ../admin/dash/espace_rdv.php');
 } else {
     echo 'erreur';
 }

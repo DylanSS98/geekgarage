@@ -28,22 +28,7 @@ $rdvlist = $sql->fetchall();
     <?php foreach ($rdvlist as $rdv): ?>
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Message de <?= $rdv['nom'] ?></h5>
-                    </div>
-                    <div class="modal-body">
-                        <?= $rdv['message'] ?>
-                    </div>
-                    <div class="modal-footer">
-                        <p>Message reçus le <?= $rdv['datefr'] ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
         <tr>
@@ -52,9 +37,7 @@ $rdvlist = $sql->fetchall();
             <td><?= $rdv['nom'] ?></td>
             <td><?= $rdv['adresse'] ?></td>
             <td><?= $rdv['telephone'] ?></td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Afficher le message
-                </button></td>
+            <td class="message"> <?= $rdv['message'] ?></td>
             <td><?= $rdv['status'] ?></td>
             <td><?= $rdv['datefr'] ?></td>
             <td><a class="btn btn-danger" href="../../back/delete_rdv.php?lign_delete=<?= intval($rdv['id']) ?>">Supprimer</a></td>

@@ -35,10 +35,7 @@ $nb_process = $sql3->fetch();
     <h1>DASHBORD rendez-vous</h1>
         <nav>
             <ul>
-                <li><a href="list_ville.php" class="btn btn-primary">Afficher les centres</a></li>
-                <li><a href="../../back/register.php" class="btn btn-primary">Ajouter un administrateur</a></li>
-                <li><a href="../../back/disconnect.php" class="btn btn-danger">Se déconnecter</a></li>
-                <li><a href="../../" class="btn btn-secondary">Retourner sur le site</a></li>
+                <li><a href="../" class="btn btn-secondary">Retour à l'acceuil</a></li>
             </ul>
         </nav>
 </header>
@@ -49,6 +46,7 @@ $nb_process = $sql3->fetch();
     <h5>En attentes : <?php foreach ($nb_waiting as $nb): ?><?php endforeach; ?><?= $nb ?></h5> <?php foreach ($nb_waiting as $nb): ?><?php endforeach; ?>
     <?php require '../../back/rdv_waiting.php'; ?>
 </div>
+
 
 <div id="rdv_encours">
     <h5>En cours de traitements : <?php foreach ($nb_being_processed as $nb): ?><?php endforeach; ?><?= $nb ?></h5> <?php foreach ($nb_waiting
